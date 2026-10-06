@@ -1,0 +1,55 @@
+{
+  "storeListing": {
+    "language": "English — en (default)",
+    "titleFromPackage": "Read English — Learn through reading",
+    "summaryFromPackage": "Explain selected English words and phrases in clear English at your reading level (A1–C2).",
+    "description": "Learn English while reading the webpages you already enjoy.\n\nRead English explains unfamiliar English words, phrases, and sentences in clear English suited to your selected reading level. Highlight some text, click Explain, and read its meaning and an example directly on the page.\n\nWHAT YOU CAN DO\n• Get English explanations and examples without switching to a translation app.\n• Choose a reading level from A1 to C2 using six built-in sample passages. The samples work offline without an API key.\n• Use Gemini, Claude, GPT (OpenAI), DeepSeek, Grok, or a custom OpenAI-compatible service.\n• Bring your own API key and choose your model.\n• Refresh the models available to your provider account and test your model connection before saving.\n• Drag the explanation card to a comfortable position.\n• Choose an interface language: English, Simplified Chinese, Traditional Chinese, Spanish, French, Portuguese, Japanese, or Korean. Reading samples and generated explanations remain in English.\n\nGET STARTED\n1. Open Settings and choose a comfortable reading level.\n2. Select a model provider, enter your API key, choose a text model, and save. You can also configure a compatible custom service.\n3. On a regular webpage containing selectable English text, highlight a word, phrase, or sentence and click Explain.\n\nCOST AND REQUIREMENTS\nRead English is free and open source. AI explanations require a configured model service. That service may charge you separately, and model availability depends on your account. The built-in reading samples do not require a model service.\n\nPRIVACY\nSettings and API keys are stored locally in your browser. When you request an explanation, your selected text and an explanation prompt are sent to the model service you choose. Your API key is used to authenticate requests to that service. The extension does not send the entire webpage, its URL, or your browsing history for explanations. This version has no developer-operated analytics or data-collection backend.\n\nReading levels are an informal self-assessment, not a formal CEFR test. AI-generated explanations may contain mistakes. Chrome restricts extensions on some pages, including its internal pages and the Chrome Web Store.",
+    "category": "Education",
+    "officialUrl": null,
+    "homepageUrl": "https://github.com/cpyer11/read-english",
+    "supportUrl": "https://github.com/cpyer11/read-english/issues",
+    "localizedPromoVideoUrl": null,
+    "globalPromoVideoUrl": null,
+    "matureContent": false
+  },
+  "privacyPractices": {
+    "singlePurposeDescription": "Help English learners understand user-selected English text by displaying level-appropriate English explanations and examples on the current webpage.",
+    "storageJustification": "Stores the user's reading level, interface language, chosen provider, API keys, model settings, custom-service configuration, and saved model lists in chrome.storage.local so these settings persist across browser sessions.",
+    "hostPermissionsJustification": "The bundled content script runs on ordinary webpages so the user can select English text and open an Explain button and explanation card on the page. An explanation is requested only when the user clicks Explain. The background worker connects directly to the selected built-in provider (Google Gemini, Anthropic, OpenAI, DeepSeek, or xAI) to fetch model lists and generate explanations. It sends the selected text and explanation prompt, not the whole page, page URL, or browsing history. Optional HTTP/HTTPS host patterns support a user-configured OpenAI-compatible service, including a local service. Access is requested for that service's origin when the user saves, refreshes, or tests its configuration; the broad optional patterns are not granted automatically.",
+    "usesRemoteCode": false,
+    "remoteCodeExplanation": "All executable extension JavaScript is included in the uploaded package. Model APIs return text or JSON data. Responses are displayed as content and are not executed as code.",
+    "dataHandlingExplanation": "Website content is processed when the user explicitly requests an explanation of selected text. User-entered API keys are stored locally and used to authenticate requests to the user's chosen provider. Reading-level settings guide the explanation prompt. No developer-operated backend receives these selections or credentials, and this version has no developer-operated analytics. Model providers receive requests under their own privacy and retention policies.",
+    "recommendedDataTypes": {
+      "websiteContent": true,
+      "authenticationInformation": true,
+      "personallyIdentifiableInformation": false,
+      "healthInformation": false,
+      "financialAndPaymentInformation": false,
+      "personalCommunications": false,
+      "location": false,
+      "webHistory": false,
+      "userActivity": false
+    },
+    "privacyPolicyUrl": null
+  },
+  "reviewerInstructions": "1. Install the extension and open Settings.\n2. Review the offline A1–C2 passages and choose a reading level.\n3. Select a provider and enter a valid API key, or configure a compatible custom service with access to a text model.\n4. Select a model, optionally click Test model, and save the settings.\n5. Open a regular English webpage, select a short English word or phrase, and click Explain.\n6. Confirm that an English meaning and example appear in the webpage card.\n\nNo separate Read English account is required. Offline reading samples can be inspected without credentials. AI generation requires credentials for the selected external service, except when the user configures a compatible service that does not require a key. No provider test credentials are included in this draft.",
+  "localizedDescriptions": {
+    "zh_CN": "在网页上，用读得懂的英文理解英文。\n\n选中英文单词、短语或句子，点击 Explain，即可在当前网页查看英文解释与例句。解释难度由你选择的 A1–C2 阅读等级引导，帮助你继续阅读感兴趣的内容。\n\n主要功能\n• 在当前网页查看英文解释与例句，减少切换应用。\n• 用六篇内置 A1–C2 试读文章选择适合自己的阅读等级；试读无需 API Key，可离线使用。\n• 支持 Gemini、Claude、GPT（OpenAI）、DeepSeek、Grok，以及自定义 OpenAI 兼容服务。\n• 使用自己的 API Key，选择模型，刷新可用模型列表，并在保存前测试连接。\n• 拖动解释卡片，调整位置。\n• 支持英语、简体中文、繁体中文、西班牙语、法语、葡萄牙语、日语和韩语界面。试读文章与 AI 解释仍为英文。\n\n开始使用\n1. 打开设置，选择适合自己的阅读等级。\n2. 选择模型服务，填写 API Key、选择模型并保存；也可配置兼容的自定义服务。\n3. 在普通网页选中英文，点击 Explain。\n\n费用与隐私\n插件免费开源。实际生成解释需要配置模型服务，该服务可能另行收费，模型可用性取决于你的服务账号。内置试读不需要模型服务。\n\n设置和 API Key 保存在本地浏览器。你请求解释时，选中的文本与解释提示会发送给你选择的模型服务，API Key 用于该服务的请求认证。解释请求不会发送整页内容、网页地址或浏览历史。当前版本没有开发者运营的数据收集或分析后端。\n\n阅读等级是自评参考，不是正式 CEFR 考试。AI 解释可能出错。Chrome 内部页面和 Chrome 应用商店等页面限制扩展运行。"
+  },
+  "manualNotes": {
+    "titleAndSummary": "这两个字段由已上传扩展包生成，不能在该页面直接修改。",
+    "category": "在下拉菜单中选择 Education（教育）。",
+    "officialUrl": "没有经过 Google Search Console 验证的网站时，保持 None；不要把 GitHub 仓库地址填入此下拉字段。",
+    "emptyUrls": "null 表示留空。宣传视频字段要求 YouTube 视频 URL，不能填写本地 MP4 路径。",
+    "privacyPolicy": "当前隐私政策文件位于 store-assets/privacy-policy.md。先发布到公开可访问的网址，再把真实网址填入 privacyPolicyUrl；不要填写本地路径或尚未发布的 GitHub 文件地址。",
+    "dataTypes": "这些数据类型是依据当前代码给出的填写建议：选中文本属于 Website content，API Key 属于 Authentication information。请与后台实际字段及隐私政策保持一致。",
+    "images": "图片字段需要上传文件，不能用文本代替。商店图标可使用 icons/icon128.png；截图和宣传图需另行准备。",
+    "contactEmail": "尚未提供发布者联系邮箱，因此未编造。",
+    "browserStatus": "Chrome 连接返回 nodeRepl.fetch request failed；本对象未写入或保存到开发者后台。"
+  },
+  "references": {
+    "listing": "https://developer.chrome.com/docs/webstore/cws-dashboard-listing",
+    "category": "https://developer.chrome.com/docs/webstore/best-practices",
+    "privacy": "https://developer.chrome.com/docs/webstore/cws-dashboard-privacy"
+  }
+}

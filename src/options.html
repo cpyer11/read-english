@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="settingsTitle">Read English Settings</title>
+    <style>
+      :root {
+        --primary: #111;
+        --accent: #2563eb;
+        --bg: #f9fafb;
+        --surface: #ffffff;
+        --border: #e5e7eb;
+        --text: #1f2937;
+        --text-muted: #6b7280;
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .settings-card {
+        background: var(--surface);
+        width: 100%;
+        max-width: 680px;
+        padding: 28px;
+        border-radius: 16px;
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.06),
+          0 10px 15px -3px rgba(0, 0, 0, 0.06);
+        border: 1px solid var(--border);
+      }
+
+      h1 {
+        font-size: 18px;
+        font-weight: 650;
+        margin: 0 0 8px 0;
+        letter-spacing: -0.01em;
+        color: #111;
+      }
+
+      p.subtitle {
+        margin: 0 0 20px 0;
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.45;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--primary);
+      }
+
+      input[type="password"],
+      input[type="text"],
+      input[type="url"],
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        font-size: 14px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        background: #fff;
+        color: var(--text);
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      }
+
+      .row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .row > * {
+        flex: 1;
+        min-width: 0;
+      }
+
+      button#save-btn {
+        width: 100%;
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: transform 0.08s ease, background 0.2s ease;
+        margin-top: 6px;
+      }
+
+      button#save-btn:hover {
+        background: #000;
+      }
+
+      button#save-btn:active {
+        transform: scale(0.985);
+      }
+
+      #status-msg {
+        margin-top: 14px;
+        font-size: 13px;
+        text-align: center;
+        min-height: 18px;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      #status-msg.success {
+        color: #059669;
+        opacity: 1;
+      }
+
+      #status-msg.error {
+        color: #dc2626;
+        opacity: 1;
+      }
+
+      .hint {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+        font-size: 11px;
+      }
+      [hidden] { display: none !important; }
+      button { cursor: pointer; font: inherit; border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; background: white; color: var(--text); }
+      button:disabled { cursor: default; opacity: .5; }
+      button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+      .placement { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 24px; }
+      .placement h2 { font-size: 17px; margin: 0 0 10px; }
+      .level-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+      .level-tabs button[aria-pressed="true"] { background: var(--accent); color: white; border-color: var(--accent); }
+      #sample-title { font-size: 18px; margin-bottom: 8px; }
+      #sample-text { white-space: pre-line; line-height: 1.85; font-size: 16px; }
+      .sample-navigation { display: flex; justify-content: space-between; gap: 12px; margin: 16px 0; }
+      #choose-level { width: 100%; background: var(--accent); color: white; }
+      #placement-result { line-height: 1.5; color: #047857; }
+      .model-test { margin-top: 14px; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; background: var(--bg); }
+      .model-test p { line-height: 1.6; font-size: 14px; margin: 6px 0 12px; overflow-wrap: anywhere; white-space: pre-wrap; }
+      .model-test .test-label { font-size: 12px; font-weight: 600; }
+      #test-model-msg { margin-top: 10px; overflow-wrap: anywhere; }
+    </style>
+  </head>
+  <body>
+    <div class="settings-card">
+      <h1 data-i18n="settingsTitle">Read English Settings</h1>
+      <div class="form-group">
+        <label for="uiLanguage" data-i18n="languageLabel">Interface language</label>
+        <select id="uiLanguage" disabled>
+          <option value="auto" data-i18n="automatic">Automatic (browser language)</option>
+          <option value="en">English</option>
+          <option value="zh-CN">简体中文</option>
+          <option value="zh-TW">繁體中文</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+        </select>
+        <div class="hint" data-i18n="languageHint">Menus and instructions use this language. Reading samples and explanations stay in English.</div>
+      </div>
+      <p class="subtitle" data-i18n="subtitle">
+        Find your comfortable reading level first. Then choose a model provider and add its API key to get English explanations with a small, supported challenge.
+      </p>
+
+      <section class="placement" aria-labelledby="placement-heading">
+        <h2 id="placement-heading" data-i18n="placementHeading">1. Find your reading level</h2>
+        <p id="placement-result" aria-live="polite"></p>
+        <button type="button" id="retake-placement" data-i18n="retake" hidden>Try the reading samples again</button>
+        <div id="placement-reader">
+          <p class="hint" data-i18n="placementInstructions">Read without a dictionary and choose your comfortable reading level.</p>
+          <div id="level-tabs" class="level-tabs" role="group" aria-label="Reading sample levels" data-i18n-aria="sampleLevels"></div>
+          <article aria-labelledby="sample-title" lang="en">
+            <h3 id="sample-title"></h3>
+            <div id="sample-meta" class="hint"></div>
+            <p id="sample-text" lang="en"></p>
+          </article>
+          <div class="sample-navigation">
+            <button type="button" id="previous-sample" data-i18n="easier">← Easier</button>
+            <button type="button" id="next-sample" data-i18n="harder">Harder →</button>
+          </div>
+          <button type="button" id="choose-level"></button>
+          <p class="hint" data-i18n="placementNote">An informal reading self-check, not a certified CEFR test. Works offline without an API key.</p>
+        </div>
+      </section>
+
+      <form id="options-form">
+        <div class="form-group">
+          <label for="aiProvider" data-i18n="providerLabel">Model provider</label>
+          <select id="aiProvider" disabled>
+            <option value="gemini">Gemini (Google)</option>
+            <option value="claude">Claude (Anthropic)</option>
+            <option value="openai">GPT (OpenAI)</option>
+            <option value="deepseek">DeepSeek</option>
+            <option value="grok">Grok (xAI)</option>
+            <option value="custom" data-i18n="customProvider">Custom (OpenAI compatible)</option>
+          </select>
+          <div class="hint" data-i18n="providerHint">Each provider keeps its own key, model and list.</div>
+        </div>
+        <div id="custom-provider-fields" hidden>
+          <div class="form-group">
+            <label for="customName" data-i18n="customNameLabel">Service name (optional)</label>
+            <input type="text" id="customName" maxlength="80" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="customBaseUrl" data-i18n="customUrlLabel">API base URL</label>
+            <input type="url" id="customBaseUrl" placeholder="https://api.example.com/v1" spellcheck="false" autocomplete="off" />
+            <div class="hint" data-i18n="customUrlHint">Enter the base URL, such as https://api.example.com/v1 or http://localhost:1234/v1, without /chat/completions or /responses.</div>
+          </div>
+          <div class="form-group">
+            <label for="customApiFormat" data-i18n="customFormatLabel">API format</label>
+            <select id="customApiFormat">
+              <option value="chat">OpenAI Chat Completions</option>
+              <option value="responses">OpenAI Responses</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apiKey" id="api-key-label">Gemini API Key</label>
+          <input
+            type="password"
+            id="apiKey"
+            placeholder="AIza..."
+            spellcheck="false"
+            autocomplete="off"
+          />
+          <div class="hint" data-i18n="keyHint">Stored locally on this device.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="aiModel" data-i18n="modelLabel">Model</label>
+          <div class="row">
+            <select id="aiModel" disabled>
+              <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+            </select>
+            <button
+              type="button"
+              id="refresh-models-btn"
+              data-i18n="refresh"
+              style="flex: 0 0 auto; width: auto; margin-top: 0; padding: 10px 12px"
+              disabled
+            >
+              Refresh
+            </button>
+          </div>
+          <div id="custom-model-field" hidden>
+            <label for="customModel" data-i18n="customModelLabel" style="margin-top: 10px">Model ID</label>
+            <input type="text" id="customModel" placeholder="my-model" spellcheck="false" autocomplete="off" />
+            <div class="hint" data-i18n="customModelHint">Enter a model ID or choose from the refreshed list. You can save a model even if this service has no model-list endpoint.</div>
+          </div>
+          <div id="model-msg" class="hint" aria-live="polite"></div>
+          <div class="model-test">
+            <button type="button" id="test-model-btn" data-i18n="testModel" disabled>Test model</button>
+            <div class="hint" data-i18n="testModelHint">Ask the current model to rewrite a C1-style sentence in A2 English. Uses the settings shown above without saving them. Sends one generation request.</div>
+            <div id="test-model-msg" class="hint" role="status" aria-live="polite"></div>
+            <div id="model-test-result" aria-busy="false" hidden>
+              <div class="test-label" data-i18n="testSourceLabel">Original · C1-style English</div>
+              <p id="test-model-source" lang="en"></p>
+              <div class="test-label" data-i18n="testOutputLabel">Model rewrite · A2 target</div>
+              <p id="test-model-output" lang="en"></p>
+              <div class="hint" data-i18n="testModelNote">A reply confirms the connection. Check whether the rewrite is easy to understand.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cefrLevel" data-i18n="levelLabel">Your reading level</label>
+          <select id="cefrLevel" disabled>
+            <option value="A1" data-i18n="levelA1">A1 — Beginner</option>
+            <option value="A2" data-i18n="levelA2">A2 — Elementary</option>
+            <option value="B1" data-i18n="levelB1">B1 — Intermediate</option>
+            <option value="B2" data-i18n="levelB2">B2 — Upper intermediate</option>
+            <option value="C1" data-i18n="levelC1">C1 — Advanced</option>
+            <option value="C2" data-i18n="levelC2">C2 — Proficient</option>
+          </select>
+          <div class="hint" data-i18n="levelHint">Adjust your level here if explanations feel too easy or too hard.</div>
+          <div class="hint" data-i18n="learningBalanceHint">All levels use about 80% expressions at your level and 20% slightly new expressions, supported by context or a short explanation.</div>
+        </div>
+
+        <button type="submit" id="save-btn" data-i18n="save">Save</button>
+      </form>
+
+      <div id="status-msg" role="status" aria-live="polite"></div>
+    </div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

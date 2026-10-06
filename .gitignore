@@ -1,0 +1,32 @@
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Build artifacts
+dist/
+build/
+*.crx
+release/
+
+
+
+# Editor config
+.vscode/
+
+# Secrets / local config (never commit)
+.env
+.env.*
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets.json
+keys/
+
+# Website is maintained in a separate private repository.
+/website/

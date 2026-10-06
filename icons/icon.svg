@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Read English — open book</title>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#163d36"/>
+  <g transform="translate(7 4) scale(4.75)">
+    <path fill="#f7f4e8" d="M4.3 6C6.8 5.2 9.3 5.7 11.25 7.2V19.2C9.25 17.8 6.8 17.1 4.25 17.9C3.5 18.15 3 17.6 3 16.8V7.4C3 6.7 3.5 6.3 4.3 6Z"/>
+    <path fill="#9fddbd" d="M12.75 7.2C14.7 5.7 17.2 5.2 19.7 6C20.5 6.3 21 6.7 21 7.4V16.8C21 17.6 20.5 18.15 19.75 17.9C17.2 17.1 14.75 17.8 12.75 19.2Z"/>
+  </g>
+</svg>

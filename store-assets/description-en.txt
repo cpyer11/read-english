@@ -1,0 +1,25 @@
+Learn English while reading the webpages you already enjoy.
+
+Read English explains unfamiliar English words, phrases, and sentences in clear English suited to your selected reading level. Highlight some text, click Explain, and read its meaning and an example directly on the page.
+
+WHAT YOU CAN DO
+• Get English explanations and examples without switching to a translation app.
+• Choose a reading level from A1 to C2 using six built-in sample passages. The samples work offline without an API key.
+• Use Gemini, Claude, GPT (OpenAI), DeepSeek, Grok, or a custom OpenAI-compatible service.
+• Bring your own API key and choose your model.
+• Refresh the models available to your provider account and test your model connection before saving.
+• Drag the explanation card to a comfortable position.
+• Choose an interface language: English, Simplified Chinese, Traditional Chinese, Spanish, French, Portuguese, Japanese, or Korean. Reading samples and generated explanations remain in English.
+
+GET STARTED
+1. Open Settings and choose a comfortable reading level.
+2. Select a model provider, enter your API key, choose a text model, and save. You can also configure a compatible custom service.
+3. On a regular webpage containing selectable English text, highlight a word, phrase, or sentence and click Explain.
+
+COST AND REQUIREMENTS
+Read English is free and open source. AI explanations require a configured model service. That service may charge you separately, and model availability depends on your account. The built-in reading samples do not require a model service.
+
+PRIVACY
+Settings and API keys are stored locally in your browser. When you request an explanation, your selected text and an explanation prompt are sent to the model service you choose. Your API key is used to authenticate requests to that service. The extension does not send the entire webpage, its URL, or your browsing history for explanations. This version has no developer-operated analytics or data-collection backend.
+
+Reading levels are an informal self-assessment, not a formal CEFR test. AI-generated explanations may contain mistakes. Chrome restricts extensions on some pages, including its internal pages and the Chrome Web Store.
